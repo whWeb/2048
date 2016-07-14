@@ -3,32 +3,22 @@ var score = 0;
 $(document).keydown(function(e){
 	switch(e.keyCode){
 		case 37:  //left
-			if(moveLeft()){
-				 generateOneNumber();
-				 isgameover();
-			}
+			moveLeft();
 			break;
 		case 38:  //up
-			if(moveUp()){
-				 generateOneNumber();
-				 isgameover();
-			}				
+			moveUp();
 			break;
 		case 39:  //right 
-			if(moveRight()){
-				 generateOneNumber();
-				 isgameover();
-			}		
+			moveRight();
 			break;
 		case 40:  //down
-			if(moveDown()){
-				 generateOneNumber();
-				 isgameover();
-			}				
+			moveDown();
 			break;
 		default:
 			break;
 	}
+	generateOneNumber();
+	isgameover();
 });
 /**********************************moveLeft**************************************/
 function moveLeft(){
@@ -122,7 +112,7 @@ function canMoveRight(board){
 
 /*************************************moveUp***************************************/
 function moveUp(){
-	if(!canMoveRight(board)){
+	if(!canmoveUp(board)){
 		return false;	 
 	}
 	for(var i = 1; i < 4; i++){
@@ -167,7 +157,7 @@ function canmoveUp(board){
 
 /*************************************moveDown***************************************/
 function moveDown(){
-	if(!canMoveRight(board)){
+	if(!canmoveDown(board)){
 		return false;	 
 	}
 	for(var i = 2; i >= 0; i--){
